@@ -17,7 +17,7 @@ class MovieDbDatasource extends MoviesDatasource {
   Future<List<Movie>> getNowPlaying({int page = 1}) async {
     // Aquí iría la lógica para llamar a la API de The Movie DB y obtener las películas en cartelera.
     // Por ahora, devolveremos una lista vacía como placeholder.
-    final response = await dio.get('movie/now_playing');
+    final response = await dio.get('/movie/now_playing');
     final movieDbResponse = MovieDbResponse.fromJson(response.data);
     final List<Movie> movies = movieDbResponse.results
         .where((movieDb) => movieDb.posterPath != 'No poster')
